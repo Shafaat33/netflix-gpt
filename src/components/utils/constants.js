@@ -10,4 +10,8 @@ export const API_OPTIONS = {
   },
 };
 
-export const MOVIE_URL = "https://api.themoviedb.org/3/movie/{movie_id}/videos"
+export const MOVIE_URL = "https://api.themoviedb.org/3/movie/{movie_id}/videos";
+
+export const IMAGE_CDN_URL = "https://image.tmdb.org/t/p/w500/";
+
+export const BG_IMAGE_URL = "https://assets.nflxext.com/ffe/siteui/vlv3/00103100-5b45-4d4f-af32-342649f1bda5/bf6f5dab-8a85-48af-be22-de3a0cfd4ea7/PK-en-20230821-popsignuptwoweeks-perspective_alpha_website_large.jpg";
