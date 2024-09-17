@@ -1,8 +1,9 @@
 import React from "react";
 import { BG_IMAGE_URL } from "./utils/constants";
 import GptSearchBar from "./GptSearchBar";
+import GptMovieSuggestions from "./GptMovieSuggestions";
 
-const GptSearchView = (props) => {
+const GptSearchView = () => {
   
   return (
     <>
@@ -15,6 +16,7 @@ const GptSearchView = (props) => {
       </div>
       <div>
         <GptSearchBar />
+        <GptMovieSuggestions />
       </div>
     </>
   )

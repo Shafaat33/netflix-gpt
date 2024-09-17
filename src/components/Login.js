@@ -5,7 +5,7 @@ import { auth } from "./utils/firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser } from "./utils/userReducer";
-import { USER_AVATAR } from "./utils/constants";
+import { BG_URL, USER_AVATAR } from "./utils/constants";
 
 const Login = () => {
 
@@ -75,13 +75,13 @@ const Login = () => {
   return (
     <div>
       <Header />
-      <div className="absolute w-full">
-        <img
-          className="h-screen w-full"
-          alt="backgroundimg"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/00103100-5b45-4d4f-af32-342649f1bda5/bf6f5dab-8a85-48af-be22-de3a0cfd4ea7/PK-en-20230821-popsignuptwoweeks-perspective_alpha_website_large.jpg" />
+      <div className="absolute">
+        <img className="h-screen object-cover" src={BG_URL} alt="logo" />
       </div>
-      <form onSubmit={submitForm} className="p-12 w-3/12 my-36 mx-auto right-0 left-0 text-white rounded-lg bg-black absolute opacity-90">
+      <form
+        onSubmit={(e) => e.preventDefault()}
+        className="w-full md:w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
+      >
         <h1 className="font-bold text-3xl py-4">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
@@ -103,7 +103,7 @@ const Login = () => {
           ref={password}
           type="password"
           className="p-4 my-4 w-full bg-gray-700"
-          placeholder="password" 
+          placeholder="Password"
         />
         {validationErrorMessage && <p className="text-red-500 font-bold py-2">{validationErrorMessage}</p>}
         <button
@@ -112,8 +112,10 @@ const Login = () => {
         >
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
-        <p className="py-4 cursor-pointer" onClick={() => toggleSignInForm()}>
-          {isSignInForm ? "New to netflix? sign Up now" : "Already registered? sign In now"}
+        <p className="py-4 cursor-pointer" onClick={toggleSignInForm}>
+          {isSignInForm
+            ? "New to Netflix? Sign Up Now"
+            : "Already registered? Sign In Now."}
         </p>
       </form>
     </div>
